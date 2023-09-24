@@ -25,8 +25,6 @@ public class Person implements Serializable {
 		this.id = id;
 	}
 
-
-
 	public String getFirstName() {
 		return firstName;
 	}
@@ -77,7 +75,5 @@ public class Person implements Serializable {
 				&& Objects.equals(gender, other.gender) && Objects.equals(id, other.id)
 				&& Objects.equals(lastName, other.lastName);
 	}
-	
-	
 
 }
