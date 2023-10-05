@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import br.com.teste.data.vo.v1.PersonVO;
 import br.com.teste.mapper.DozerMapper;
+import br.com.teste.model.Person;
 import br.com.teste.unittests.mapper.mocks.MockPerson;
 
 public class DozerConverterTest {
@@ -60,7 +61,7 @@ public class DozerConverterTest {
 
     @Test
     public void parseVOToEntityTest() {
-        PersonVO output = DozerMapper.parseObject(inputObject.mockVO(), PersonVO.class);
+        Person output = DozerMapper.parseObject(inputObject.mockVO(), Person.class);
         assertEquals(Long.valueOf(0L), output.getId());
         assertEquals("First Name Test0", output.getFirstName());
         assertEquals("Last Name Test0", output.getLastName());
@@ -70,8 +71,8 @@ public class DozerConverterTest {
 
     @Test
     public void parserVOListToEntityListTest() {
-        List<PersonVO> outputList = DozerMapper.parseListObjects(inputObject.mockVOList(), PersonVO.class);
-        PersonVO outputZero = outputList.get(0);
+        List<Person> outputList = DozerMapper.parseListObjects(inputObject.mockVOList(), Person.class);
+        Person outputZero = outputList.get(0);
         
         assertEquals(Long.valueOf(0L), outputZero.getId());
         assertEquals("First Name Test0", outputZero.getFirstName());
@@ -79,7 +80,7 @@ public class DozerConverterTest {
         assertEquals("Addres Test0", outputZero.getAddress());
         assertEquals("Male", outputZero.getGender());
         
-        PersonVO outputSeven = outputList.get(7);
+        Person outputSeven = outputList.get(7);
         
         assertEquals(Long.valueOf(7L), outputSeven.getId());
         assertEquals("First Name Test7", outputSeven.getFirstName());
@@ -87,7 +88,7 @@ public class DozerConverterTest {
         assertEquals("Addres Test7", outputSeven.getAddress());
         assertEquals("Female", outputSeven.getGender());
         
-        PersonVO outputTwelve = outputList.get(12);
+        Person outputTwelve = outputList.get(12);
         
         assertEquals(Long.valueOf(12L), outputTwelve.getId());
         assertEquals("First Name Test12", outputTwelve.getFirstName());

@@ -15,15 +15,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.teste.data.vo.v1.PersonVO;
-import br.com.teste.service.PersonVOServices;
+import br.com.teste.service.PersonServices;
 
 @RestController
-@RequestMapping("/PersonVO")
-public class PersonVOController {
+@RequestMapping("/person")
+public class PersonController {
 	
 	@Autowired
-	private PersonVOServices service;
-	//private PersonVOServices service = new PersonVOServices();
+	private PersonServices service;
+	//private PersonServices service = new PersonServices();
 
 	@GetMapping(produces=MediaType.APPLICATION_JSON_VALUE)
 	public List<PersonVO> findAll() {
@@ -36,13 +36,13 @@ public class PersonVOController {
 	}
 	
 	@PostMapping(consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
-	public PersonVO create(@RequestBody PersonVO personVO) {
-		return service.create(personVO);
+	public PersonVO create(@RequestBody PersonVO person) {
+		return service.create(person);
 	}
 	
 	@PutMapping(consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
-	public PersonVO update(@RequestBody PersonVO personVO) {
-		return service.update(personVO);
+	public PersonVO update(@RequestBody PersonVO person) {
+		return service.update(person);
 	}
 	
 	@DeleteMapping(value = "/{id}")
